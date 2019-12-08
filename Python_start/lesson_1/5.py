@@ -12,7 +12,7 @@ if income > outgoing:
 
     profit_for_1 = profit / count
 
-    print(f"Прибыль в рассчете на одного сотрудника: {profit_for_1}.")
+    print(f"Прибыль в рассчете на одного сотрудника: {profit_for_1:.3f}.")
 
 elif income == outgoing:
     print("Поздравляем, Ваша фирма не приносит убытка!")

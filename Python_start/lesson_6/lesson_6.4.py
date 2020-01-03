@@ -57,6 +57,7 @@ class SportCar(Car):
     #
     # def show_speed(self):
     #     print(f"Спортивной машине вcе можно! Скорость {self.speed}.")
+    pass
 
 town_car = TownCar('Волга', 'черная', 75)
 town_car.go()

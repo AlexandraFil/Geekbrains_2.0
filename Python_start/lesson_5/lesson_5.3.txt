@@ -1,0 +1,10 @@
+Ivanov 56000
+Petrov 67000
+Smith 19000
+German 35000
+Kubec 12000
+Bunny 17000
+Lorabell 45000
+Ptica 43000
+Chernich 36000
+Poe 97000

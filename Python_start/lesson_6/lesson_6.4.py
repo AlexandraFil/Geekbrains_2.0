@@ -54,9 +54,9 @@ class PoliceCar(Car):
         super().__init__(name, color, speed, is_police)
 
 class SportCar(Car):
-
-    def show_speed(self):
-        print(f"Спортивной машине вcе можно! Скорость {self.speed}.")
+    #
+    # def show_speed(self):
+    #     print(f"Спортивной машине вcе можно! Скорость {self.speed}.")
 
 town_car = TownCar('Волга', 'черная', 75)
 town_car.go()

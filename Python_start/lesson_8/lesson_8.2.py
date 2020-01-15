@@ -15,6 +15,7 @@ class DivisionErr(Exception):
         except:
             return f"Деление на ноль не предусмотренно!"
 
+
 x = float(input("Введите делимое: "))
 y = float(input("Введите делитель: "))
 

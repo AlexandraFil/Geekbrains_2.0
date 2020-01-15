@@ -74,6 +74,7 @@ class Xerox(Items):
     def to_copy(self):
         return f'{self.name} can copy something'
 
+
 storage_1 = Storehouse('Moscow', 'Ivanov')
 print(storage_1)
 

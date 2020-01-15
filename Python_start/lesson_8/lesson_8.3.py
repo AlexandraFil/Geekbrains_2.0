@@ -22,12 +22,14 @@ class Err(Exception):
                 print(f'Текущий список: {self.my_list}')
             except:
                 print("Недопустимое значение, принимаются только числа!")
-                more = input('Продолжить ввод значений? Введите "Y" чтобы продолжить или другое значение для завершения: ')
+                more = input(
+                    'Продолжить ввод значений? Введите "Y" чтобы продолжить или другое значение для завершения: ')
 
                 if more == 'Y' or more == 'y':
                     continue
                 else:
                     return f'Вы вышли. Текущий список: {self.my_list}'
+
 
 my_err = Err()
 print(my_err.get_numbers())

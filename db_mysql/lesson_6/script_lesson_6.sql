@@ -43,7 +43,7 @@ CREATE TABLE likes (
 );
 
 SHOW TABLES;
-DROP TABLE events;
+DROP TABLE events; # удалила таблицы, которые у меня были для лайков
 DROP TABLE event_types;
 DROP TABLE review_statuses;
 
@@ -275,7 +275,6 @@ SELECT CONCAT(first_name, ' ', last_name) AS fullname
 SELECT CONCAT(first_name, ' ', last_name) AS fullname  
 	FROM users
 	WHERE last_name RLIKE '^M.*z$';
-
 
 
 

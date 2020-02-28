@@ -28,6 +28,33 @@ FROM likes
 GROUP BY target_id #  сколько каждый из самых молодых получил лайков
 WITH ROLLUP; #  сколько суммарно
 
+-- -- -- --
+
+SELECT * FROM target_types;
+
+SELECT * FROM profiles ORDER BY birthday DESC LIMIT 10;
+
+SELECT * FROM likes WHERE target_type_id = 2;
+
+SELECT target_id, COUNT(*) FROM likes
+	WHERE target_type_id = 2
+		AND target_id IN (SELECT * FROM(
+			SELECT user_id FROM profiles ORDER BY birthday DESC LIMIT 10
+		) AS sorted_profiles)
+		GROUP BY target_id;
+	
+SELECT SUM(likes_per_user) AS likes_total FROM(
+	SELECT COUNT(*) AS likes_per_user
+		FROM likes
+			WHERE target_type_id = 2
+				AND target_id IN(
+					SELECT * FROM(
+						SELECT user_id FROM profiles ORDER BY birthday DESC LIMIT 10
+					) AS sorted_profiles
+				)
+			GROUP BY target_id
+) AS counted_likes;
+
 -- 3. Определить кто больше поставил лайков (всего) - мужчины или женщины?
 
 DESC profiles;
@@ -70,6 +97,11 @@ SELECT
 				(SELECT COUNT(user_id) 
 					FROM profiles 
 						WHERE sex = 'f')) AS women;		# women - 2,3684
+						
+-- -- -- --
+
+
+						
 						
 -- 4. Найти 10 пользователей, которые проявляют наименьшую активность в использовании социальной сети.
 
@@ -115,7 +147,16 @@ FROM a
 GROUP BY user_id 
 ORDER BY total_actions LIMIT 10;
 							
+-- -- --
 
+SELECT CONCAT(first_name, ' ', last_name) AS user,
+	(SELECT COUNT(*) FROM likes WHERE likes.user_id = users.id) +
+	(SELECT COUNT(*) FROM media WHERE media.user_id = users.id) +
+	(SELECT COUNT(*) FROM messages WHERE messages.from_user_id  = users.id)
+	AS overall_activity
+	FROM users 
+	ORDER BY overall_activity 
+	LIMIT 10;
 						
 						
 						

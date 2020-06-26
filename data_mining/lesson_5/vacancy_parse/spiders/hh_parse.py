@@ -44,7 +44,7 @@ class HhParseSpider(scrapy.Spider):
                 salary_max = None
                 salary_currency = None
 
-        except:
+        except Exception:
                 salary_min = None
                 salary_max = None
                 salary_currency = None

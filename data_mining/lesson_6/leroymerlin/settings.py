@@ -72,6 +72,7 @@ DEFAULT_REQUEST_HEADERS = {
 ITEM_PIPELINES = {
     'leroymerlin.pipelines.LeroymerlinPipeline': 300,
     'leroymerlin.pipelines.LeroymerlinPhotosPipeline': 200,
+    'leroymerlin.pipelines.CSVPipeline': 500,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
